@@ -56,14 +56,15 @@ public class ToiletServiceImpl implements ToiletService {
 
     @Override
     public List<WcInfo> parsingWc(String juso) {
-        switch (juso) {
-            case "해운대":
-                return wcInfoRepository.pointWc("해운대");
-            case "부전역":
-                return wcInfoRepository.pointWc("부전역");
-            default:
-                return wcInfoRepository.pointWc("내위치%");
-        }
+        return wcInfoRepository.findByAddressContaining(juso);
+//        switch (juso) {
+//            case "해운대":
+//                return wcInfoRepository.pointWc("해운대");
+//            case "부전역":
+//                return wcInfoRepository.pointWc("부전역");
+//            default:
+//                return wcInfoRepository.pointWc("내위치%");
+//        }
     }
 
     @Override
