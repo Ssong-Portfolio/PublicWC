@@ -1,0 +1,39 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Build project
+        run: |
+          ./gradlew clean build
+
+      - name: Copy file to EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ec2-user
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          scp -o StrictHostKeyChecking=no -i "$PRIVATE_KEY" ./build/libs/myapp.jar $EC2_USER@$EC2_HOST:/home/ec2-user/
+
+      - name: Run JAR file on EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ec2-user
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          ssh -o StrictHostKeyChecking=no -i "$PRIVATE_KEY" $EC2_USER@$EC2_HOST "java -jar /home/ec2-user/myapp.jar &"
