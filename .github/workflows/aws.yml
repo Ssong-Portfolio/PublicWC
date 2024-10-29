@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./Spring/gradlew
+
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
