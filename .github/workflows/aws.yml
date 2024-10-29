@@ -27,9 +27,6 @@ jobs:
           cd Spring
           ./gradlew clean build
 
-      - name: Connect to EC2
-        run: ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ec2-user@${{ secrets.EC2_HOST }}
-
       - name: Copy file to EC2
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
