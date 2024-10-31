@@ -38,7 +38,7 @@ $(document).ready(function () {
     }
 
     $('#address-input').on('input', function () {
-        const apiKey = '29ef09afe41f4631c7f4d665587bc23f';
+        const apiKey = kakaoApiKey;
         const query = $(this).val().trim();
         const url = `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(query)}&x=${userLon}&y=${userLat}&radius=2000`;
         if (query.length < 2) {

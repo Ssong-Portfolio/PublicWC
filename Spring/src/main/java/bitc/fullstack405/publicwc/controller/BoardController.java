@@ -6,6 +6,7 @@ import bitc.fullstack405.publicwc.service.ToiletService;
 import bitc.fullstack405.publicwc.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,21 @@ public class BoardController {
     @Autowired
     private UserService userService;
 
+    @Value("${KOKOA_JAVASCRIPT_API}")
+    private String kakaoApiKey;
+
     @GetMapping("/write")
-    public String boardWrite(Model model) {
-        return "board/boardWrite"; // boardWrite.html을 렌더링
+    public ModelAndView boardWrite() {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("kakaoApiKey", kakaoApiKey);
+        mv.setViewName("board/boardWrite");
+        return mv;
     }
+
+//    @GetMapping("/write")
+//    public String boardWrite(Model model) {
+//        return "board/boardWrite";
+//    }
 
     @PostMapping("/write")
     public String submitPost(@ModelAttribute WcInfo wcinfo, HttpSession session, Model model) {

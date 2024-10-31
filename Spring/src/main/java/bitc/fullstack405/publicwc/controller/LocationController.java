@@ -6,6 +6,7 @@ import bitc.fullstack405.publicwc.entity.WcInfo;
 import bitc.fullstack405.publicwc.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,11 +29,15 @@ public class LocationController {
     @Autowired
     FavoriteService favoriteService;
 
+    @Value("${KOKOA_JAVASCRIPT_API}")
+    private String kakaoApiKey;
+
     @GetMapping("/search.do")
     public ModelAndView searchMap(@RequestParam String juso) {
         ModelAndView mv = new ModelAndView();
 
         mv.addObject("jusoValue", juso);
+        mv.addObject("kakaoApiKey", kakaoApiKey);
         mv.setViewName("board/boardList");
 
         return mv;
@@ -55,6 +60,7 @@ public class LocationController {
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("board/boardDetail");
+        mv.addObject("kakaoApiKey", kakaoApiKey);
 
         int wcIntId = Integer.parseInt(wcId);
         WcInfo wcInfo = toiletService.findWcInfoById(wcIntId);

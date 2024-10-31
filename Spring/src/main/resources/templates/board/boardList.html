@@ -23,10 +23,15 @@
         <div class="map_wrap listMap">
             <div id="map" class="mapSize"></div>
         </div>
+
+
+
         <script type="text/javascript"
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00e9042c7f04c04f3d386355eeaeb634&libraries=services"></script>
+                th:src="@{'https://dapi.kakao.com/v2/maps/sdk.js?appkey=' + ${kakaoApiKey} + '&libraries=services'}">
+        </script>
+
         <script src="/js/ListKakaoMap.js"></script>
-<!--        <script src="/js/WcBest.js" defer></script>-->
+        <!--        <script src="/js/WcBest.js" defer></script>-->
 
         <!--  주소 검색창 시작 -->
         <div class="col-sm-8 mx-auto">
@@ -86,7 +91,8 @@
                         <h5 th:text="${wc.name}">화장실 이름</h5>
                         <p>주소: <span th:text="${wc.addr1}">주소</span> <span th:text="${wc.addr2}">상세 주소</span></p>
                         <p>개방 시간: <span th:text="${wc.time}">개방 시간</span></p>
-                        <p>위도: <span th:text="${wc.latitude}">위도</span>, 경도: <span th:text="${wc.longitude}">경도</span></p>
+                        <p>위도: <span th:text="${wc.latitude}">위도</span>, 경도: <span th:text="${wc.longitude}">경도</span>
+                        </p>
                         <p>기타: <span th:text="${wc.comment}">기타 사항</span></p>
                     </li>
                 </ul>
