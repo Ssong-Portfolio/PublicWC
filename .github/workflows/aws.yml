@@ -36,8 +36,8 @@ jobs:
 
       - name: Generate api.properties file
         run: |
-          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > api.properties
-          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> api.properties
+          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > Spring/src/main/resources/api.properties
+          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> Spring/src/main/resources/api.properties
 
       - name: Copy files to EC2
         env:
