@@ -22,6 +22,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Generate api.properties file
+        run: |
+          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > Spring/src/main/resources/api.properties
+          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> Spring/src/main/resources/api.properties
+
       - name: Build project
         run: |
           cd Spring
@@ -33,11 +38,6 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key.pem
           chmod 600 private_key.pem
-
-      - name: Generate api.properties file
-        run: |
-          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > Spring/src/main/resources/api.properties
-          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> Spring/src/main/resources/api.properties
 
       - name: Copy files to EC2
         env:
