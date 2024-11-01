@@ -24,8 +24,8 @@ jobs:
 
       - name: Generate api.properties file
         run: |
-          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > Spring/src/main/resources/api.properties
-          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> Spring/src/main/resources/api.properties
+          echo "KOKOA_RESTFUL_API=${{ secrets.KOKOA_RESTFUL_API }}" > Spring/src/main/resources/application-secret.properties
+          echo "KOKOA_JAVASCRIPT_API=${{ secrets.KOKOA_JAVASCRIPT_API }}" >> Spring/src/main/resources/application-secret.properties
 
       - name: Build project
         run: |
@@ -59,4 +59,3 @@ jobs:
         if: always()
         run: |
           rm -f private_key.pem
-          rm -f api.properties
