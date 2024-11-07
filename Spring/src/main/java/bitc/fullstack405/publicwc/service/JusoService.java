@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class JusoService {
-//    @Value("${kakao.rest.api.key}")
     @Value("${KOKOA_RESTFUL_API}")
     private String apiKey;
 
