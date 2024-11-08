@@ -1,42 +1,19 @@
-# PublicWC
-우리들의 공공화장실 프로젝트
+# 공공화장실 공유 웹사이트 (우화)
 
-# 프로젝트
-> 개발기간 : 2024.07.19 ~ 2024.07.31
+## 프로젝트 개요
+- **기간**: 2024.07.19 ~ 2024.07.31
+- **개발 환경**: Java, Spring Boot, MySQL(JPA), HTML, JavaScript, Bootstrap
+- **팀 구성**: 5명
 
-# 개발인원
-> 5명
+### 주요 기능
+- **공공 포털 데이터 활용**: 부산 지역의 개방형 화장실 정보를 제공하는 웹사이트로, 사용자들이 화장실 위치 정보를 공유할 수 있도록 설계되었습니다.
+- **카카오 API를 활용한 지도 구현**: 사용자가 직관적으로 화장실 위치를 찾을 수 있도록 지도에서 핀과 주소 검색 자동 완성 기능을 지원했습니다.
+- **Ajax 및 RestAPI 비동기 통신**: 서버와의 원활한 통신을 위해 Ajax를 사용하여 사용자 요청에 신속히 응답하고, RestAPI 방식으로 비동기 데이터를 처리했습니다.
 
-# 담당역할
-> Spring JPA를 사용해 프로젝트 DB생성 관리 좋아요/싫어요 , 즐겨찾기 기능 구현
+### 담당 역할
+- **카카오 지도 API를 활용한 지도 기능 구현**: DB 데이터를 핀으로 표시하고, 각 핀에서 주소를 가져오는 작업을 수행했습니다.
+- **주소 검색 자동 완성 기능**: 사용자 편의성을 높이기 위해 주소 입력 시 자동으로 완성되는 기능을 구현했습니다.
 
-# Skills
-1. 백엔드
->![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![mysql](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white)
-
-2. 프론트엔드
->![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![css](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![bootstrap](    https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-
-# ERD & USE-CASE
-<details>
-<summary>ERD</summary>
-<img src="wcERD.png" alt="ERD" />
-</details>
-<details>
-<summary>USE-CASE</summary>
-<img src="wcUSECASE.png" alt="USE-CASE" />
-</details>
-
-# 주요기능
-1.
-> 지도 API를 사용하여 이 
-
-2.
-
-# 시연영상
-https://youtu.be/RaGQRdA6Ndo
+### 프로젝트 링크
+- **웹사이트**: [우화 웹사이트](http://15.164.183.44:8082)
+- **시연 영상**: [유튜브 링크](https://youtu.be/RaGQRdA6Ndo)
